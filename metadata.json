@@ -1,0 +1,6 @@
+{
+  "name": "Remix Trang Phục Truyền Thống Việt Nam - Backend & Frontend",
+  "description": "Ứng dụng phối đồ cổ phong Việt Phục Remix Studio với kiến trúc 2 module độc lập /frontend và /backend (kèm Admin Dashboard).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

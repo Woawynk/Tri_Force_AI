@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Dev Dashboard - Việt Phục Remix Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-rose-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-xl shadow-lg shadow-rose-950/40">
+          🛠️
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold text-white tracking-tight">Admin &amp; Dev Dashboard</h1>
+            <span class="text-[10px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded-full font-mono font-semibold">
+              Backend v2.0
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Hệ thống quản trị dữ liệu Google Sheets, Google Drive &amp; Supabase Cloud</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="/" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+          <span>👁️</span> Xem Frontend App
+        </a>
+        <button id="btn-refresh-all" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black text-xs font-bold transition shadow flex items-center gap-1.5">
+          <span>🔄</span> Làm Mới
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- Section 1: Overview Health & Status Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Card 1: Supabase Database -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+          <span class="flex items-center gap-1.5">🗄️ Supabase PostgreSQL</span>
+          <span id="badge-db-status" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="metric-db-count" class="text-2xl font-black text-white font-mono">--</span>
+          <span class="text-xs text-slate-400">vật phẩm trong database</span>
+        </div>
+        <div id="text-db-status" class="text-[11px] text-slate-400 truncate font-mono">Đang kiểm tra kết nối...</div>
+      </div>
+
+      <!-- Card 2: Google Service Account -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+          <span class="flex items-center gap-1.5">🔑 Google Auth</span>
+          <span id="badge-auth-status" class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">--</span>
+        </div>
+        <div id="metric-auth-email" class="text-xs font-mono font-bold text-white truncate select-all">
+          Đang đọc credentials...
+        </div>
+        <div id="text-auth-note" class="text-[11px] text-slate-400">Hỗ trợ Service Account &amp; Public CSV</div>
+      </div>
+
+      <!-- Card 3: Google Drive Direct Links -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+          <span class="flex items-center gap-1.5">📁 Google Drive Links</span>
+          <span class="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded font-mono">CDN Direct</span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span id="metric-drive-count" class="text-2xl font-black text-white font-mono">--</span>
+          <span class="text-xs text-slate-400">ảnh liên kết Google Drive</span>
+        </div>
+        <div class="text-[11px] text-emerald-400">Đã tự động chuyển đổi URL sang Direct Link</div>
+      </div>
+
+      <!-- Card 4: Supabase Storage Bucket -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-400">
+          <span class="flex items-center gap-1.5">☁️ Storage Bucket</span>
+          <span class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">images (Public)</span>
+        </div>
+        <div class="text-sm font-bold text-white font-mono truncate">
+          temp/ &amp; user/
+        </div>
+        <div class="text-[11px] text-slate-400">Lưu kết quả Flatlay Remix vĩnh viễn</div>
+      </div>
+
+    </div>
+
+    <!-- Section 2: Google Sheets Sync Panel (Thao tác đồng bộ) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5 shadow-xl">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span>📊</span> Đồng Bộ Dữ Liệu Từ Google Sheets ➔ Supabase
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Tự động trích xuất Google Sheet, chuẩn hóa 10 cột dữ liệu, chuyển đổi link ảnh Google Drive và nạp vào Supabase
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="/api/admin/sheets-template/csv" download="viet_phuc_google_sheets_template.csv" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1">
+            <span>📥</span> Tải CSV Mẫu (226 items)
+          </a>
+        </div>
+      </div>
+
+      <!-- Sync Form -->
+      <form id="form-sync" class="space-y-4" onsubmit="event.preventDefault();">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          
+          <div class="md:col-span-6 space-y-1.5">
+            <label class="text-xs font-bold text-slate-300 block">
+              Google Sheet ID hoặc Đường Dẫn Toàn Bộ:
+            </label>
+            <input 
+              type="text" 
+              id="input-sheet-id" 
+              value="1hAOAiuqgILU_qpoyWoXN2t4CPDdBoTEQHEzduhDe-zI"
+              placeholder="Dán ID hoặc URL: https://docs.google.com/spreadsheets/d/..." 
+              class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-rose-500"
+            />
+            <span class="text-[11px] text-slate-500 block">Ví dụ: <code class="text-amber-400">1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms</code></span>
+          </div>
+
+          <div class="md:col-span-3 space-y-1.5">
+            <label class="text-xs font-bold text-slate-300 block">Tab &amp; Dải Ô (Range):</label>
+            <input 
+              type="text" 
+              id="input-sheet-range" 
+              value="Items!A1:Z" 
+              class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-rose-500"
+            />
+          </div>
+
+          <div class="md:col-span-3 flex flex-col justify-end">
+            <label class="flex items-center gap-2 p-2.5 bg-slate-950 rounded-xl border border-slate-800 cursor-pointer text-xs font-medium text-slate-300">
+              <input type="checkbox" id="checkbox-dry-run" class="w-4 h-4 accent-amber-500 rounded">
+              <span>Chạy thử nghiệm (Dry-run)</span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <button 
+            type="button" 
+            id="btn-sync-now" 
+            class="px-5 py-2.5 bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-rose-950/40 transition flex items-center gap-2"
+          >
+            <span>🚀</span> BẮT ĐẦU ĐỒNG BỘ GOOGLE SHEETS ➔ SUPABASE
+          </button>
+
+          <button 
+            type="button" 
+            id="btn-seed-local" 
+            class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition flex items-center gap-1.5"
+          >
+            <span>🌱</span> Nạp 226 Items Mẫu Sẵn Có Lên Supabase
+          </button>
+        </div>
+      </form>
+
+      <!-- Sync Live Log Result Box -->
+      <div id="sync-log-card" class="hidden bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between text-xs font-bold">
+          <span id="sync-log-title" class="text-amber-400 font-mono">Tiến trình đồng bộ...</span>
+          <span id="sync-log-time" class="text-slate-500 font-mono text-[11px]"></span>
+        </div>
+        <div id="sync-log-content" class="text-xs text-slate-300 font-mono whitespace-pre-wrap leading-relaxed"></div>
+      </div>
+
+    </div>
+
+    <!-- Section 3: Data Explorer (Xem danh sách vật phẩm trong DB) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span>🗂️</span> Kho Dữ Liệu Vật Phẩm Hiện Tại
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Xem và kiểm tra toàn bộ dữ liệu áo cổ phong, quần và phụ kiện đang phục vụ cho hệ thống
+          </p>
+        </div>
+
+        <!-- Filter / Search Controls -->
+        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <select id="select-category-filter" class="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-xl px-3 py-2 focus:outline-none">
+            <option value="all">Tất cả danh mục</option>
+            <option value="skin">Áo / Trang phục (Skin)</option>
+            <option value="pants">Quần (Pants)</option>
+            <option value="accessory">Phụ kiện (Accessory)</option>
+          </select>
+
+          <input 
+            type="text" 
+            id="input-search-items" 
+            placeholder="Tìm theo tên, ID, bối cảnh..." 
+            class="bg-slate-950 border border-slate-800 text-xs text-white rounded-xl px-3 py-2 w-full sm:w-56 focus:outline-none focus:border-rose-500"
+          />
+        </div>
+      </div>
+
+      <!-- Items Count Indicator -->
+      <div class="flex items-center justify-between text-xs text-slate-400">
+        <span id="text-items-count-display">Đang tải dữ liệu...</span>
+        <span class="font-mono text-emerald-400">Live Backend Database View</span>
+      </div>
+
+      <!-- Items Grid -->
+      <div id="items-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 max-h-[500px] overflow-y-auto pr-1">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-4 px-6 text-center text-xs text-slate-500">
+    Việt Phục Remix Studio • Admin &amp; Dev Management Dashboard © 2026
+  </footer>
+
+  <!-- Client Script for Admin -->
+  <script>
+    let allLoadedItems = [];
+
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/admin/sync-sheets/status');
+        const data = await res.json();
+        
+        // Supabase DB
+        const dbStatusElem = document.getElementById('text-db-status');
+        const dbCountElem = document.getElementById('metric-db-count');
+        const dbBadge = document.getElementById('badge-db-status');
+        if (data.supabase?.status === 'connected') {
+          dbBadge.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400';
+          dbStatusElem.textContent = '✓ Kết nối thành công (Supabase PostgreSQL)';
+          dbStatusElem.className = 'text-[11px] text-emerald-400 truncate font-mono';
+        } else {
+          dbBadge.className = 'w-2.5 h-2.5 rounded-full bg-rose-400';
+          dbStatusElem.textContent = '✕ Chưa kết nối hoặc lỗi: ' + (data.supabase?.status || 'N/A');
+          dbStatusElem.className = 'text-[11px] text-rose-400 truncate font-mono';
+        }
+        dbCountElem.textContent = data.supabase?.total_items || 0;
+
+        // Auth
+        const authEmailElem = document.getElementById('metric-auth-email');
+        const authBadge = document.getElementById('badge-auth-status');
+        if (data.service_account?.configured) {
+          authBadge.textContent = 'Service Account';
+          authBadge.className = 'text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono';
+          authEmailElem.textContent = data.service_account.client_email || 'Service Account';
+        } else {
+          authBadge.textContent = 'Public Mode';
+          authBadge.className = 'text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono';
+          authEmailElem.textContent = 'Public Google Sheets Fallback';
+        }
+
+        // Drive Count
+        document.getElementById('metric-drive-count').textContent = data.supabase?.drive_direct_links_count || 0;
+
+        // Auto-fill Sheet ID if empty
+        const sheetInput = document.getElementById('input-sheet-id');
+        if (sheetInput && !sheetInput.value && data.google_sheet?.sheet_id) {
+          sheetInput.value = data.google_sheet.sheet_id;
+        }
+      } catch (err) {
+        console.error('Lỗi khi fetch status:', err);
+      }
+    }
+
+    async function fetchItems() {
+      try {
+        const res = await fetch('/api/clothes');
+        const data = await res.json();
+        allLoadedItems = data.clothes_info?.items || [];
+        renderItemsGrid();
+      } catch (err) {
+        console.error('Lỗi khi fetch items:', err);
+        document.getElementById('text-items-count-display').textContent = 'Không thể tải danh sách vật phẩm.';
+      }
+    }
+
+    function renderItemsGrid() {
+      const container = document.getElementById('items-grid-container');
+      const countDisplay = document.getElementById('text-items-count-display');
+      const catFilter = document.getElementById('select-category-filter').value;
+      const search = document.getElementById('input-search-items').value.toLowerCase().trim();
+
+      const filtered = allLoadedItems.filter(item => {
+        const matchCat = catFilter === 'all' || item.category === catFilter;
+        const matchSearch = !search ||
+          item.name.toLowerCase().includes(search) ||
+          item.id.toLowerCase().includes(search) ||
+          (item.description && item.description.toLowerCase().includes(search));
+        return matchCat && matchSearch;
+      });
+
+      countDisplay.textContent = `Hiển thị ${filtered.length} / ${allLoadedItems.length} vật phẩm`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-span-full py-12 text-center text-xs text-slate-500">Không tìm thấy vật phẩm nào khớp với bộ lọc.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => `
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 flex flex-col justify-between hover:border-slate-700 transition">
+          <div class="aspect-square bg-black rounded-lg overflow-hidden mb-2 relative flex items-center justify-center p-0.5">
+            <img src="${item.image_filename}" alt="${item.name}" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/200x200/1e293b/f8fafc?text=Item'"/>
+            <span class="absolute top-1 left-1 text-[8px] bg-slate-900/90 text-slate-300 px-1.5 py-0.5 rounded font-mono border border-slate-800">
+              ${item.category}
+            </span>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold text-white truncate" title="${item.name}">${item.name}</div>
+            <div class="text-[9px] font-mono text-slate-500 truncate mt-0.5">${item.id}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Sync Event
+    document.getElementById('btn-sync-now').addEventListener('click', async () => {
+      const sheetInput = document.getElementById('input-sheet-id');
+      const rangeInput = document.getElementById('input-sheet-range');
+      const dryRunInput = document.getElementById('checkbox-dry-run');
+
+      let rawSheet = sheetInput.value.trim();
+      const match = rawSheet.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        rawSheet = match[1];
+        sheetInput.value = rawSheet;
+      }
+
+      if (!rawSheet) {
+        alert('Vui lòng nhập Google Sheet ID hoặc đường dẫn Google Sheet!');
+        sheetInput.focus();
+        return;
+      }
+
+      const logCard = document.getElementById('sync-log-card');
+      const logTitle = document.getElementById('sync-log-title');
+      const logContent = document.getElementById('sync-log-content');
+      const logTime = document.getElementById('sync-log-time');
+      const btn = document.getElementById('btn-sync-now');
+
+      logCard.classList.remove('hidden');
+      logTitle.textContent = '⏳ Đang kết nối Google Sheets & xử lý dữ liệu...';
+      logTitle.className = 'text-amber-400 font-mono';
+      logContent.textContent = 'Bắt đầu gửi request tới /api/admin/sync-sheets...';
+      logTime.textContent = new Date().toLocaleTimeString('vi-VN');
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/admin/sync-sheets', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sheet_id: rawSheet,
+            sheet_range: rangeInput.value.trim() || 'Items!A1:Z',
+            dry_run: dryRunInput.checked
+          })
+        });
+
+        const result = await res.json();
+        btn.disabled = false;
+
+        if (result.success) {
+          logTitle.textContent = '✓ ' + (dryRunInput.checked ? '[DRY-RUN HOÀN TẤT]' : 'ĐỒNG BỘ THÀNH CÔNG!');
+          logTitle.className = 'text-emerald-400 font-mono';
+          logContent.textContent = [
+            `Thông điệp: ${result.message}`,
+            `Tổng dòng Sheet đọc được: ${result.total_rows_found}`,
+            `Số lượng nạp thành công: ${result.items_synced} items`,
+            `Link ảnh Google Drive Direct: ${result.direct_drive_links_count}`,
+            `Chi tiết: Áo (Skins): ${result.categories?.skin || 0}, Quần: ${result.categories?.pants || 0}, Phụ kiện: ${result.categories?.accessory || 0}`,
+            result.errors ? `Cảnh báo: ${result.errors.join(' | ')}` : 'Không có lỗi phát sinh.'
+          ].join('\n');
+        } else {
+          logTitle.textContent = '✕ ĐỒNG BỘ THẤT BẠI';
+          logTitle.className = 'text-rose-400 font-mono';
+          logContent.textContent = `Lỗi: ${result.message || result.error || 'Vui lòng kiểm tra lại ID Sheet và quyền truy cập'}`;
+        }
+
+        await fetchStatus();
+        await fetchItems();
+      } catch (e) {
+        btn.disabled = false;
+        logTitle.textContent = '✕ LỖI KẾT NỐI MÁY CHỦ';
+        logTitle.className = 'text-rose-400 font-mono';
+        logContent.textContent = `Chi tiết lỗi: ${e.message}`;
+      }
+    });
+
+    // Seed Local Event
+    document.getElementById('btn-seed-local').addEventListener('click', async () => {
+      if (!confirm('Bạn có chắc chắn muốn nạp toàn bộ 226 items lên bảng clothes_items của Supabase?')) return;
+      const btn = document.getElementById('btn-seed-local');
+      btn.disabled = true;
+      btn.textContent = '⏳ Đang nạp dữ liệu...';
+      try {
+        const res = await fetch('/api/supabase/seed', { method: 'POST' });
+        const data = await res.json();
+        alert(data.message || 'Thao tác hoàn tất!');
+        await fetchStatus();
+        await fetchItems();
+      } catch (e) {
+        alert('Lỗi: ' + e.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '🌱 Nạp 226 Items Mẫu Sẵn Có Lên Supabase';
+      }
+    });
+
+    // Event listeners
+    document.getElementById('select-category-filter').addEventListener('change', renderItemsGrid);
+    document.getElementById('input-search-items').addEventListener('input', renderItemsGrid);
+    document.getElementById('btn-refresh-all').addEventListener('click', () => {
+      fetchStatus();
+      fetchItems();
+    });
+
+    // Initial load
+    fetchStatus();
+    fetchItems();
+  </script>
+</body>
+</html>
