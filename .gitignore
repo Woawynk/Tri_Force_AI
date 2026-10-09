@@ -2,7 +2,15 @@ node_modules/
 build/
 dist/
 coverage/
+.vite/
+.turbo/
+*.tsbuildinfo
+server.js
 .DS_Store
 *.log
 .env*
 !.env.example
+*.pem
+*.key
+*.p12
+*.secret
