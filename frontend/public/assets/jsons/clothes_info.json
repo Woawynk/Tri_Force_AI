@@ -1,0 +1,363 @@
+{
+  "project": "Remix Trang Phục Truyền Thống Việt Nam",
+  "version": "2.0.0",
+  "categories": [
+    {
+      "id": "skin",
+      "name": "Trang Phục Chính & Áo Khoác",
+      "description": "Các cổ phục và biến thể truyền thống qua các thời kỳ Việt Nam"
+    },
+    {
+      "id": "pants",
+      "name": "Quần Truyền Thống",
+      "description": "Các mẫu quần lụa, sa tanh, đũi mộc cho Nam và Nữ"
+    },
+    {
+      "id": "accessory",
+      "name": "Phụ Kiện Truyền Thống",
+      "description": "Nón, khăn vấn, mấn xếp, trang sức kim hoàn cổ truyền"
+    }
+  ],
+  "items": [
+    {
+      "id": "ao_tac_ngu_than",
+      "name": "Áo Tấc (Áo Ngũ Thân Tay Thụng)",
+      "category": "skin",
+      "period": "Thời Nguyễn (Thế kỷ 19 - 20)",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nam/aotac_nam_xichkim_1790751003197.jpg",
+      "description": "Lễ phục trang trọng có tay thụng rộng, cổ đứng gài 5 cúc tượng trưng cho Ngũ thường.",
+      "suitable_events": [
+        "Lễ cưới truyền thống",
+        "Tết Nguyên Đán",
+        "Lễ hội văn hóa"
+      ],
+      "recommended_colors": [
+        "Xích Kim",
+        "Bích Thủy",
+        "Thanh Lam"
+      ]
+    },
+    {
+      "id": "ao_nhat_binh",
+      "name": "Áo Nhật Bình",
+      "category": "skin",
+      "period": "Thời Nguyễn (Cung đình Huế)",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nu/nhatbinh_nu_xichkim_1790757699655.jpg",
+      "description": "Trang phục cung đình mệnh phụ quan viên với cổ áo hình chữ nhật viền hoa văn tinh xảo.",
+      "suitable_events": [
+        "Tiệc dạ hội văn hóa",
+        "Đám cưới cổ phong",
+        "Chụp ảnh nghệ thuật"
+      ],
+      "recommended_colors": [
+        "Xích Kim",
+        "Tử Khí",
+        "Bạch Ngọc"
+      ]
+    },
+    {
+      "id": "ao_giao_linh",
+      "name": "Áo Giao Lĩnh (Áo Cổ Chéo)",
+      "category": "skin",
+      "period": "Thời Lý - Trần - Lê (Thế kỷ 11 - 18)",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nam/giaolinh_nam_xichkim_1790750388926.jpg",
+      "description": "Kiểu áo cổ xưa hai vạt chéo nhau trước ngực, phóng khoáng phong cách Đại Việt.",
+      "suitable_events": [
+        "Lễ hội lịch sử",
+        "Trình diễn nghệ thuật",
+        "Cosplay cổ trang"
+      ],
+      "recommended_colors": [
+        "Huyền Chu",
+        "Hoàng Yến",
+        "Thổ Hoàng"
+      ]
+    },
+    {
+      "id": "ao_dai_ngu_than_tay_chen",
+      "name": "Áo Ngũ Thân Tay Chẽn",
+      "category": "skin",
+      "period": "Thời Nguyễn (Tiền thân Áo Dài)",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nam/nguthan_nam_xichkim_1790750732187.jpg",
+      "description": "Áo may ôm gọn tay, vạt dài quá gối, kết hợp nút cài ngọc bích hoặc kim loại.",
+      "suitable_events": [
+        "Dạo phố xuân",
+        "Sự kiện ngoại giao",
+        "Hội nghị văn hóa"
+      ],
+      "recommended_colors": [
+        "Thanh Lam",
+        "Liên Hoa",
+        "Bích Thủy"
+      ]
+    },
+    {
+      "id": "ao_tu_than",
+      "name": "Áo Tứ Thân",
+      "category": "skin",
+      "period": "Truyền thống Đồng bằng Bắc Bộ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nu/tuthan_nu_xichkim_1790759230357.jpg",
+      "description": "Trang phục 4 vạt duyên dáng gắn liền với hình ảnh người phụ nữ Kinh Bắc.",
+      "suitable_events": [
+        "Hội xuân",
+        "Múa dân gian",
+        "Trình diễn nghệ thuật"
+      ],
+      "recommended_colors": [
+        "Liên Hoa",
+        "Phi Thủy",
+        "Hoàng Yến"
+      ]
+    },
+    {
+      "id": "ao_ba_ba_cach_tan",
+      "name": "Áo Bà Ba Cách Tân",
+      "category": "skin",
+      "period": "Đồng bằng Nam Bộ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Colors/XichKim/Nu/aobaba_nu_xichkim_1790760168196.jpg",
+      "description": "Nét đẹp đằm thắm sông nước Nam Bộ kết hợp chất liệu lụa dệt tay mộc mạc.",
+      "suitable_events": [
+        "Giao lưu văn hóa",
+        "Du lịch sinh thái",
+        "Ngày hội Nam Bộ"
+      ],
+      "recommended_colors": [
+        "Thổ Hoàng",
+        "Tử Khí",
+        "Bạch Ngọc"
+      ]
+    },
+    {
+      "id": "quan_so_nam_1",
+      "name": "Quần sớ lụa đen ống rộng (Nam)",
+      "category": "pants",
+      "period": "Truyền thống Nam",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_so_nam_1.jpg",
+      "description": "Chất liệu lụa tơ tằm đen bóng mượt, cạp quần xếp nếp phẳng, dáng suông rộng rãi.",
+      "suitable_events": [
+        "Phối cổ phục Nam",
+        "Lễ hội",
+        "Tết"
+      ]
+    },
+    {
+      "id": "quan_trang_nam_2",
+      "name": "Quần trắng ống đứng vải sa tanh (Nam)",
+      "category": "pants",
+      "period": "Truyền thống Nam",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_trang_nam_2.jpg",
+      "description": "Sa tanh trắng ngà bắt sáng óng ả, cạp phẳng đứng dáng tinh tế.",
+      "suitable_events": [
+        "Tiệc sang trọng",
+        "Lễ cưới"
+      ]
+    },
+    {
+      "id": "quan_dui_nam_3",
+      "name": "Quần đũi nâu cạp chun mộc mạc (Nam)",
+      "category": "pants",
+      "period": "Cổ phong Nam",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_dui_nam_3.jpg",
+      "description": "Sợi đũi thô dệt tay màu nâu trầm mộc mạc, ống đứng vừa vặn.",
+      "suitable_events": [
+        "Sinh hoạt hàng ngày",
+        "Chụp ảnh phong cách dân gian"
+      ]
+    },
+    {
+      "id": "quan_linh_nu_4",
+      "name": "Quần lụa lĩnh tía đen bóng (Nữ)",
+      "category": "pants",
+      "period": "Truyền thống Nữ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_linh_nu_4.jpg",
+      "description": "Lụa lĩnh tía đen tuyền sáng bóng óng ả sang trọng, tà quần rộng rủ mềm mại.",
+      "suitable_events": [
+        "Phối cùng Áo Dài, Áo Bà Ba, Áo Tấc Nữ"
+      ]
+    },
+    {
+      "id": "quan_phi_nu_5",
+      "name": "Quần phi bóng trắng ngà (Nữ)",
+      "category": "pants",
+      "period": "Truyền thống Nữ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_phi_nu_5.jpg",
+      "description": "Phi bóng mềm thướt tha, cạp ôm cao, ống xòe nhẹ thanh lịch.",
+      "suitable_events": [
+        "Dạo phố xuân",
+        "Tiệc cưới",
+        "Sự kiện văn hóa"
+      ]
+    },
+    {
+      "id": "quan_moga_nu_6",
+      "name": "Quần lụa mỡ gà dập ly nhẹ (Nữ)",
+      "category": "pants",
+      "period": "Truyền thống Nữ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Pants/quan_moga_nu_6.jpg",
+      "description": "Tông màu vàng mỡ gà nhã nhặn, dập ly li ti sang trọng uyển chuyển.",
+      "suitable_events": [
+        "Trình diễn thời trang cổ phong"
+      ]
+    },
+    {
+      "id": "man_xep_lua_nu_1",
+      "name": "Mấn xếp lụa trơn (Nữ)",
+      "category": "accessory",
+      "period": "Truyền thống Nữ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/man_xep_lua_nu_1.jpg",
+      "description": "Lụa tơ tằm mềm mại màu hồng phấn xếp nếp tỉ mỉ tinh tế."
+    },
+    {
+      "id": "khan_dong_chu_nhan_nam_2",
+      "name": "Khăn đống chữ Nhân (Nam)",
+      "category": "accessory",
+      "period": "Truyền thống Nam",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/khan_dong_chu_nhan_nam_2.jpg",
+      "description": "Khăn đống chữ Nhân dệt gấm đen chuẩn xác sang trọng nghiêm trang."
+    },
+    {
+      "id": "non_la_bai_tho_3",
+      "name": "Nón lá dây ngắn họa tiết Cờ đỏ Việt Nam",
+      "category": "accessory",
+      "period": "Cổ phong & Đương đại",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/non_la_bai_tho_3.jpg",
+      "description": "Nón lá truyền thống thiết kế quai dây ngắn gọn gàng, trang trí sắc đỏ thắm của lá cờ Tổ quốc Việt Nam kết hợp hoa văn ngôi sao vàng và họa tiết truyền thống sắc nét."
+    },
+    {
+      "id": "tram_phuong_hoang_4",
+      "name": "Trâm cài tóc phượng hoàng vàng đính ngọc",
+      "category": "accessory",
+      "period": "Cung đình",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/tram_phuong_hoang_4.jpg",
+      "description": "Trâm cài tóc phượng hoàng bằng vàng mạ chạm khắc tinh xảo đính ngọc bích."
+    },
+    {
+      "id": "non_quai_thao_5",
+      "name": "Nón quai thao",
+      "category": "accessory",
+      "period": "Dân gian Kinh Bắc",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/non_quai_thao_5.jpg",
+      "description": "Nón quai thao tròn lớn kết hợp dải thao lụa ngũ sắc rực rỡ."
+    },
+    {
+      "id": "khuyen_tai_hoa_sen_6",
+      "name": "Khuyên tai bạc hình nụ hoa sen",
+      "category": "accessory",
+      "period": "Trang sức cổ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/khuyen_tai_hoa_sen_6.jpg",
+      "description": "Khuyên tai bạc chạm khắc hình nụ hoa sen tinh xảo."
+    },
+    {
+      "id": "hoa_tai_ngoc_trai_7",
+      "name": "Khuyên tai đính ngọc trai giọt nước",
+      "category": "accessory",
+      "period": "Trang sức cổ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/hoa_tai_ngoc_trai_7.jpg",
+      "description": "Khuyên tai đính ngọc trai tự nhiên hình giọt nước kiều diễm."
+    },
+    {
+      "id": "khuyen_tai_trong_dong_8",
+      "name": "Khuyên tai tròn khắc họa tiết trống đồng",
+      "category": "accessory",
+      "period": "Trang sức Cổ truyền",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/khuyen_tai_trong_dong_8.jpg",
+      "description": "Khuyên tai đồng thau mạ vàng chạm khắc họa tiết trống đồng Đông Sơn."
+    },
+    {
+      "id": "hoa_tai_tua_rua_do_9",
+      "name": "Khuyên tai tua rua lụa đỏ",
+      "category": "accessory",
+      "period": "Trang sức cổ phong",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/hoa_tai_tua_rua_do_9.jpg",
+      "description": "Khuyên tai tua rua lụa đỏ thắm quý phái đính hạt châu bạc."
+    },
+    {
+      "id": "khuyen_tai_cam_thach_10",
+      "name": "Khuyên tai đính đá cẩm thạch xanh",
+      "category": "accessory",
+      "period": "Trang sức cổ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/khuyen_tai_cam_thach_10.jpg",
+      "description": "Khuyên tai đính đá cẩm thạch xanh ngọc bích tự nhiên kiêu sa."
+    },
+    {
+      "id": "kieng_co_bac_tron_11",
+      "name": "Kiềng cổ bạc bản to trơn",
+      "category": "accessory",
+      "period": "Kim hoàn truyền thống",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/kieng_co_bac_tron_11.jpg",
+      "description": "Vòng kiềng cổ bằng bạc sáng nguyên khối bản to trơn."
+    },
+    {
+      "id": "vong_co_ngoc_trai_12",
+      "name": "Vòng cổ ngọc trai nhiều lớp",
+      "category": "accessory",
+      "period": "Trang sức cổ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/vong_co_ngoc_trai_12.jpg",
+      "description": "Vòng cổ ngọc trai biển thiên nhiên 3 lớp sang trọng quý phái."
+    },
+    {
+      "id": "day_chuyen_ngoc_boi_rong_13",
+      "name": "Dây chuyền mặt ngọc bội tạc rồng",
+      "category": "accessory",
+      "period": "Kim hoàn cổ phong",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/day_chuyen_ngoc_boi_rong_13.jpg",
+      "description": "Dây chuyền vàng đính mặt ngọc bội cẩm thạch xanh tạc hình rồng mây."
+    },
+    {
+      "id": "vong_co_tram_huong_14",
+      "name": "Vòng cổ trầm hương",
+      "category": "accessory",
+      "period": "Trang sức phong thủy",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/vong_co_tram_huong_14.jpg",
+      "description": "Chuỗi vòng cổ hạt gỗ trầm hương thiên nhiên thơm dịu."
+    },
+    {
+      "id": "choker_lua_den_15",
+      "name": "Dây ruy băng lụa đen buộc sát cổ (choker lụa)",
+      "category": "accessory",
+      "period": "Tân cổ điển",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/choker_lua_den_15.jpg",
+      "description": "Ruy băng lụa đen buộc sát cổ đính hạt châu ngọc trai nhỏ trang nhã."
+    },
+    {
+      "id": "vong_tay_ngoc_bich_16",
+      "name": "Vòng tay ngọc bích nguyên khối",
+      "category": "accessory",
+      "period": "Trang sức ngọc",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/vong_tay_ngoc_bich_16.jpg",
+      "description": "Vòng tay ngọc bích tự nhiên nguyên khối màu xanh ngọc bích."
+    },
+    {
+      "id": "lac_tay_bac_xa_cu_17",
+      "name": "Lắc tay bạc khảm xà cừ",
+      "category": "accessory",
+      "period": "Kim hoàn truyền thống",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/lac_tay_bac_xa_cu_17.jpg",
+      "description": "Lắc tay bạc khảm xà cừ óng ánh đa sắc."
+    },
+    {
+      "id": "vong_tay_tram_huong_vang_18",
+      "name": "Vòng tay trầm hương bọc vàng",
+      "category": "accessory",
+      "period": "Trang sức phong thủy",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/vong_tay_tram_huong_vang_18.jpg",
+      "description": "Vòng tay chuỗi hạt trầm hương thiên nhiên bọc vàng 18K."
+    },
+    {
+      "id": "bo_3_vong_ximen_vang_19",
+      "name": "Bộ 3 vòng ximen vàng bản nhỏ",
+      "category": "accessory",
+      "period": "Kim hoàn Nam Bộ",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/bo_3_vong_ximen_vang_19.jpg",
+      "description": "Bộ 3 vòng ximen vàng 18K bản nhỏ đan lồng quý phái."
+    },
+    {
+      "id": "nhan_ngoc_boc_bac_20",
+      "name": "Nhẫn ngọc bản to bọc bạc",
+      "category": "accessory",
+      "period": "Trang sức ngọc",
+      "image_filename": "https://zertfkpvzmtckgbmleql.supabase.co/storage/v1/object/public/images/system/Accessories/nhan_ngoc_boc_bac_20.jpg",
+      "description": "Nhẫn ngọc cẩm thạch bản to bọc viền bạc chạm hoa văn rồng phượng."
+    }
+  ]
+}

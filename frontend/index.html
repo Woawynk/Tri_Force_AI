@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Việt Phục Remix Studio - Website UI/UX Ứng dụng Văn hóa Trang phục Truyền thống Việt Nam</title>
+  <meta name="description" content="Việt Phục Remix Studio - Khám phá, tùy biến và gìn giữ nét đẹp văn hóa trang phục cổ truyền Việt Nam qua hành trình trải nghiệm 5 địa danh di sản đất nước.">
+  
+  <!-- Font chữ tiếng Việt chuẩn mực: Be Vietnam Pro & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- File CSS thuần riêng biệt -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP HEADER (MENU BAR HIDE/SHOW TABS)
+       - Logo Việt Phục Remix Studio (ảnh crop từ trung tâm cân xứng)
+       - Menu tab chuyển đổi Hide/Show mượt mà
+       - Ribbon Đăng ký & Đăng nhập
+       ======================================================================== -->
+  <header class="top-header">
+    <div class="brand-logo" id="header-brand-logo" title="Việt Phục Remix Studio">
+      <!-- Logo ảnh từ thư mục src/assets/images/system/logo -->
+      <img src="/assets/images/system/logo/logo.png" alt="Logo Việt Phục Remix Studio" class="brand-logo-img">
+      <div class="brand-title-wrap">
+        <span class="brand-name">Việt Phục Remix Studio</span>
+        <span class="brand-sub">Ứng Dụng Văn Hóa Di Sản</span>
+      </div>
+    </div>
+
+    <!-- Menu Bar dạng Tabs cho màn hình Desktop -->
+    <nav class="nav-buttons-group">
+      <button type="button" class="nav-tab-btn active" data-target="window-1">Trang chủ</button>
+      <button type="button" class="nav-tab-btn" data-target="window-2">Giới thiệu</button>
+      <button type="button" class="nav-tab-btn" data-target="window-3">Kho đồ &amp; Phối đồ</button>
+      <button type="button" class="nav-tab-btn" data-target="window-4">Bộ sưu tập</button>
+      <button type="button" class="nav-tab-btn" data-target="window-5">Đội ngũ</button>
+
+      <!-- Ribbon Đăng ký & Đăng nhập -->
+      <div class="header-auth-wrap" id="header-auth-wrap" style="display: inline-flex; align-items: center; gap: 10px;">
+        <button type="button" class="nav-btn-auth" id="btn-open-register">Đăng ký</button>
+        <button type="button" class="nav-btn-highlight" id="btn-open-login">Đăng nhập</button>
+      </div>
+    </nav>
+
+    <!-- Nút Hamburger Menu khi màn hình thu nhỏ -->
+    <button type="button" class="hamburger-btn" id="btn-hamburger" aria-label="Mở menu điều hướng" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- Backdrop che mờ khi mở Hamburger Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- Drawer Menu di động trượt mượt mà -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Thanh điều hướng di động">
+    <div class="mobile-nav-header">
+      <div class="mobile-brand-wrap">
+        <img src="/assets/images/system/logo/logo.png" alt="Logo Việt Phục Remix Studio" class="mobile-brand-logo">
+        <div class="mobile-brand-text">
+          <span class="mobile-brand-name">Việt Phục Remix</span>
+          <span class="mobile-brand-sub">Ứng Dụng Di Sản Cổ Phong</span>
+        </div>
+      </div>
+      <button type="button" class="mobile-nav-close" id="btn-close-mobile-nav" title="Đóng menu">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <nav class="mobile-nav-links">
+        <button type="button" class="nav-tab-btn mobile-nav-btn active" data-target="window-1">
+          <span class="nav-icon">🏛️</span>
+          <span class="nav-text">Trang chủ</span>
+        </button>
+        <button type="button" class="nav-tab-btn mobile-nav-btn" data-target="window-2">
+          <span class="nav-icon">📜</span>
+          <span class="nav-text">Giới thiệu</span>
+        </button>
+        <button type="button" class="nav-tab-btn mobile-nav-btn" data-target="window-3">
+          <span class="nav-icon">🏮</span>
+          <span class="nav-text">Kho đồ &amp; Phối đồ</span>
+        </button>
+        <button type="button" class="nav-tab-btn mobile-nav-btn" data-target="window-4">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-text">Bộ sưu tập</span>
+        </button>
+        <button type="button" class="nav-tab-btn mobile-nav-btn" data-target="window-5">
+          <span class="nav-icon">👥</span>
+          <span class="nav-text">Đội ngũ</span>
+        </button>
+      </nav>
+      <div class="mobile-nav-auth" id="mobile-nav-auth-wrap">
+        <button type="button" class="mobile-auth-btn mobile-btn-register" id="mobile-btn-register">Đăng ký tài khoản</button>
+        <button type="button" class="mobile-auth-btn mobile-btn-login" id="mobile-btn-login">Đăng nhập</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       WINDOW 1: THỦ ĐÔ HÀ NỘI
+       - Background: Tháp Rùa Hồ Gươm Hà Nội
+       - Tên app: Việt Phục Remix Studio
+       - Quai nón lá rũ xuống và vượt qua vòng tròn
+       ======================================================================== -->
+  <section class="window-section active-window" id="window-1">
+    <div class="window-overlay"></div>
+
+    <div class="window-content window-1-body">
+      <!-- Nội dung văn bản giới thiệu -->
+      <div class="hero-text-container">
+        <div class="hero-subtitle">Di Sản Tinh Hoa Ngàn Năm Văn Hiến</div>
+        <h1 class="hero-title">
+          Việt Phục
+          <span>Remix Studio</span>
+        </h1>
+        <p class="hero-desc">
+          Không gian sáng tạo trang phục cổ truyền Việt Nam thế hệ mới. Tự do phối hợp y phục hoàng triều, hội hè Kinh Bắc và sắc dân gian đương đại trong khi giữ trọn chuẩn mực lễ nghi và giá trị văn hóa ngàn đời.
+        </p>
+        <button type="button" class="hero-cta-btn" id="hero-btn-start">
+          <span>Bắt Đầu Phối Đồ Ngay</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      <!-- Trang trí: Nón lá Huế úp xuống với họa tiết Hoa Sen thanh khiết -->
+      <div class="non-la-decoration-container" aria-hidden="true">
+        <!-- Ảnh Nón lá Huế truyền thống úp xuống với họa tiết hoa sen thanh nhã -->
+        <img 
+          src="/assets/images/non_la_hue_window1.jpg" 
+          alt="Nón lá Huế truyền thống úp xuống họa tiết hoa sen" 
+          class="non-la-hat-img"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WINDOW 2: HUẾ
+       - Background: Đại Nội Kinh Thành Huế
+       - Đổi kiểu chữ đề mục: BẢN TO, ĐẬM NÉT, RÕ RÀNG
+       - Nâng tone các ô vuông sáng hơn
+       ======================================================================== -->
+  <section class="window-section" id="window-2">
+    <div class="window-overlay"></div>
+
+    <div class="window-content">
+      <div class="window-header">
+        <span class="window-badge">Kinh Đô Cố Đô Huế</span>
+        <h2 class="window-heading">Sứ Mệnh Bảo Tồn &amp; Phát Triển</h2>
+        <p class="window-subheading">
+          Nền tảng giúp thế hệ trẻ tiếp cận di sản y quan Đại Việt một cách trực quan, khoa học và đầy cảm hứng sáng tạo.
+        </p>
+      </div>
+
+      <!-- 3 Divs theo yêu cầu đề bài: NÂNG TONE SÁNG -->
+      <div class="w2-three-cards-grid">
+        <!-- Div 1: Đối tượng & mục tiêu -->
+        <div class="w2-card">
+          <span class="w2-card-number">01 / MỤC TIÊU</span>
+          <h3 class="w2-card-title">Đối Tượng &amp; Mục Tiêu</h3>
+          <p class="w2-card-desc">
+            Hướng tới đối tượng học sinh, sinh viên và những người trẻ có nhu cầu tìm hiểu, nghiên cứu cách phối trang phục truyền thống hài hòa cùng phong cách hiện đại trong đời sống hôm nay.
+          </p>
+        </div>
+
+        <!-- Div 2: Quy trình & lợi ích -->
+        <div class="w2-card">
+          <span class="w2-card-number">02 / QUY TRÌNH</span>
+          <h3 class="w2-card-title">Quy Trình &amp; Lợi Ích</h3>
+          <p class="w2-card-desc">
+            Người dùng được trao quyền tự do lựa chọn, phối hợp các thức trang phục, tông sắc truyền thống và phụ kiện đa dạng nhưng vẫn đảm bảo tuyệt đối các giá trị văn hóa và chuẩn mực lễ nghi lịch sử.
+          </p>
+        </div>
+
+        <!-- Div 3: Kết quả -->
+        <div class="w2-card">
+          <span class="w2-card-number">03 / KẾT QUẢ</span>
+          <h3 class="w2-card-title">Kết Quả Đạt Được</h3>
+          <p class="w2-card-desc">
+            Tạo ra những bộ trang phục phù hợp với tinh thần văn hóa dân tộc Việt Nam, giữ trọn hồn cốt ngàn đời của tiền nhân nhưng vẫn mang đậm hơi thở hiện đại và tính ứng dụng cao trong thực tiễn.
+          </p>
+        </div>
+      </div>
+
+      <!-- Video demo hướng dẫn sử dụng sản phẩm -->
+      <div class="w2-video-section">
+        <div class="w2-video-header">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <h3 class="w2-video-title">Video Demo Hướng Dẫn Sử Dụng Ứng Dụng</h3>
+            <span class="w2-video-tag">Minh họa thao tác trực quan</span>
+          </div>
+          <a href="https://www.youtube.com/watch?v=yqWX86uT5jM&list=RDyqWX86uT5jM&start_radio=1" target="_blank" rel="noopener noreferrer" class="btn-youtube-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000" style="vertical-align: middle;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>Mở trên YouTube ↗</span>
+          </a>
+        </div>
+
+        <div class="w2-video-wrapper">
+          <iframe 
+            id="w2-demo-video-iframe" 
+            class="w2-video-element"
+            src="https://www.youtube-nocookie.com/embed/yqWX86uT5jM?rel=0&modestbranding=1" 
+            title="Video Demo Hướng Dẫn Sử Dụng Ứng Dụng Việt Phục Remix"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="width: 100%; height: 100%; border: none; border-radius: 14px;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WINDOW 3: NHA TRANG (KHU VỰC TƯƠNG TÁC CHÍNH)
+       - Thanh trượt 3 bước: kết thúc chuẩn xác ở bước 3, không trượt ra ngoài khung
+       - Bước 1: 5 không gian chủ đạo + ô nhập nơi khác; 5 thời gian chủ đạo
+       - Bước 2: Thư viện 226 trang phục, 10 màu, 20 phụ kiện có hình ảnh
+       - Bước 3: Phụ kiện đi kèm, % độ phù hợp, đánh giá remix, cảnh báo văn hóa, zoom tích hợp, link chia sẻ không 404
+       ======================================================================== -->
+  <section class="window-section" id="window-3">
+    <div class="window-overlay"></div>
+
+    <div class="window-content">
+      <div class="w3-interactive-panel">
+        
+        <!-- Top Navigation của Window 3 -->
+        <div class="w3-top-nav">
+          <div class="w3-title-group">
+            <h2 class="w3-app-title">Khu Vực Phối Đồ Cổ Phục Tương Tác</h2>
+            <p class="w3-app-desc">Tùy biến y phục truyền thống Việt Nam theo bối cảnh và cảm quan thẩm mỹ</p>
+          </div>
+
+          <div class="w3-nav-actions">
+            <button type="button" class="btn-secondary-action" id="btn-reset-w3">
+              ↺ Đặt lại (Reset)
+            </button>
+            <button type="button" class="btn-secondary-action" id="btn-open-saved">
+              ★ Đồ đã lưu
+            </button>
+          </div>
+        </div>
+
+        <!-- Thanh trượt 3 bước: Bản Desktop ngang & Bản Mobile thu gọn 1 bước/lần -->
+        <div class="step-progress-bar-wrapper">
+          <!-- Bản Desktop: 3 bước trải hàng ngang -->
+          <div class="step-progress-bar" id="step-progress-desktop">
+            <!-- Bước 1 -->
+            <div class="step-item active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Bước 1: Bối cảnh</span>
+            </div>
+
+            <!-- Đoạn nối 1-2 -->
+            <div class="step-connector-line">
+              <div class="step-connector-fill" id="fill-line-1"></div>
+            </div>
+
+            <!-- Bước 2 -->
+            <div class="step-item" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Bước 2: Trang phục &amp; Phối đồ</span>
+            </div>
+
+            <!-- Đoạn nối 2-3 (Dừng chuẩn xác tại Bước 3, không có đoạn nào lồi ra phía sau) -->
+            <div class="step-connector-line">
+              <div class="step-connector-fill" id="fill-line-2"></div>
+            </div>
+
+            <!-- Bước 3 -->
+            <div class="step-item" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Bước 3: Kết quả &amp; Ý nghĩa</span>
+            </div>
+          </div>
+
+          <!-- Bản Mobile: Thu gọn tinh tế chỉ hiện 1 bước tại 1 thời điểm -->
+          <div class="step-progress-mobile" id="step-progress-mobile">
+            <div class="sp-mobile-card">
+              <button type="button" class="sp-mobile-nav-btn" id="sp-mobile-prev" title="Quay lại bước trước" aria-label="Quay lại bước trước">
+                <span>‹</span>
+              </button>
+              
+              <div class="sp-mobile-info">
+                <div class="sp-mobile-meta">
+                  <span class="sp-mobile-badge" id="sp-mobile-badge">Bước 1 / 3</span>
+                  <span class="sp-mobile-step-tag" id="sp-mobile-step-tag">Bối cảnh</span>
+                </div>
+                <h3 class="sp-mobile-title" id="sp-mobile-title">Chọn Bối Cảnh &amp; Không Gian</h3>
+                
+                <!-- Thanh tiến trình mini 3 vạch -->
+                <div class="sp-mobile-progress-track">
+                  <button type="button" class="sp-track-segment active" data-step="1" title="Bước 1: Bối cảnh"></button>
+                  <button type="button" class="sp-track-segment" data-step="2" title="Bước 2: Trang phục &amp; Phối đồ"></button>
+                  <button type="button" class="sp-track-segment" data-step="3" title="Bước 3: Kết quả"></button>
+                </div>
+              </div>
+
+              <button type="button" class="sp-mobile-nav-btn" id="sp-mobile-next" title="Chuyển bước kế tiếp" aria-label="Chuyển bước kế tiếp">
+                <span>›</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             BƯỚC 1: CHỌN BỐI CẢNH
+             5 Không gian chủ đạo + Thanh nhập nơi khác
+             5 Thời gian chủ yếu (Ban đêm dùng hình ban đêm thực tế)
+             ==================================================================== -->
+        <div class="step-container active-step" id="step-1-container">
+          
+          <!-- 5 Không gian chủ đạo -->
+          <h4 class="context-group-title">
+            <span>🏛️</span>
+            <span>5 Không Gian Chủ Đạo</span>
+          </h4>
+          <div class="visual-cards-grid">
+            
+            <!-- 1. Di tích lịch sử - văn hóa -->
+            <div class="context-card space-context-card selected" data-value="Di tích lịch sử - văn hóa">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/hue_ngo_mon_1791098015997.jpg" alt="Di tích lịch sử - văn hóa" class="context-card-img" loading="lazy" decoding="async">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Di Tích Lịch Sử - Văn Hóa</h5>
+                <p class="context-card-desc">Cố đô Huế, Hoàng thành Thăng Long, đền chùa miếu mạo cổ kính.</p>
+              </div>
+            </div>
+
+            <!-- 2. Phố đi bộ - phố văn hóa -->
+            <div class="context-card space-context-card" data-value="Phố đi bộ - phố văn hóa">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/hcm_quan1_1791098051494.jpg" alt="Phố đi bộ - phố văn hóa" class="context-card-img" loading="lazy" decoding="async">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Phố Đi Bộ - Phố Văn Hóa</h5>
+                <p class="context-card-desc">Không gian giao lưu nghệ thuật, biểu diễn văn hóa cộng đồng sống động.</p>
+              </div>
+            </div>
+
+            <!-- 3. Khu du lịch - công viên văn hóa -->
+            <div class="context-card space-context-card" data-value="Khu du lịch - công viên văn hóa">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/trangan_ninhbinh_ecotourism.jpg?v=user_uploaded" alt="Khu du lịch - công viên văn hóa (Tràng An - Ninh Bình)" class="context-card-img" loading="lazy" decoding="async">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Khu Du Lịch - Công Viên Văn Hóa</h5>
+                <p class="context-card-desc">Cảnh quan danh thắng Tràng An, non nước hữu tình kết hợp bảo tồn di sản sinh thái.</p>
+              </div>
+            </div>
+
+            <!-- 4. Phố cổ - làng cổ -->
+            <div class="context-card space-context-card" data-value="Phố cổ - làng cổ">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/hoian_ancient_town_street.jpg?v=user_uploaded" alt="Phố cổ - làng cổ (Phố cổ Hội An)" class="context-card-img" loading="lazy" decoding="async">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Phố Cổ - Làng Cổ</h5>
+                <p class="context-card-desc">Phố cổ Hội An, làng cổ Đường Lâm ngói rêu tường vàng trầm mặc và hoài niệm.</p>
+              </div>
+            </div>
+
+            <!-- 5. Không gian lễ hội -->
+            <div class="context-card space-context-card" data-value="Không gian lễ hội">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/vietnam_festival_landscape_1791104261501.jpg" alt="Không gian lễ hội" class="context-card-img" loading="lazy" decoding="async">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Không Gian Lễ Hội</h5>
+                <p class="context-card-desc">Lễ hội đền Hùng, hội Lim Quan họ, lễ hội hoa đăng rực rỡ sắc màu.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Thanh thông tin để người dùng điền nơi khác ngoài 5 không gian trên -->
+          <div class="custom-space-input-box">
+            <label class="custom-space-label" for="custom-space-input">✦ Địa điểm / Không gian khác:</label>
+            <input 
+              type="text" 
+              id="custom-space-input" 
+              class="custom-space-input" 
+              placeholder="Bạn có thể tự do nhập không gian chụp ảnh / sự kiện khác ngoài 5 địa điểm trên..."
+            />
+          </div>
+
+          <!-- Phần Thời gian: Bình Minh, Hoàng Hôn, Ban Ngày, Ban đêm (HÌNH BAN ĐÊM HOA ĐĂNG), Giữa Trưa -->
+          <h4 class="context-group-title">
+            <span>🌅</span>
+            <span>Thời Gian / Thời Điểm Trong Ngày</span>
+          </h4>
+          <div class="visual-cards-grid">
+            
+            <!-- 1. Bình Minh -->
+            <div class="context-card time-context-card selected" data-value="Bình Minh">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/hanoi_ho_guom_1791098000569.jpg" alt="Bình Minh" class="context-card-img">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Bình Minh</h5>
+                <p class="context-card-desc">Nắng sớm trong trẻo, mang sinh khí khởi đầu tinh khôi và thanh khiết.</p>
+              </div>
+            </div>
+
+            <!-- 2. Hoàng Hôn -->
+            <div class="context-card time-context-card" data-value="Hoàng Hôn">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/camau_cape_1791098068727.jpg" alt="Hoàng Hôn" class="context-card-img">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Hoàng Hôn</h5>
+                <p class="context-card-desc">Ánh chiều tà mờ ảo nhuộm đỏ rực tà áo lụa và ráng chiều buông xuống.</p>
+              </div>
+            </div>
+
+            <!-- 3. Ban Ngày -->
+            <div class="context-card time-context-card" data-value="Ban Ngày">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/phu_quoc_island.jpg" alt="Ban Ngày (Phú Quốc)" class="context-card-img">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Ban Ngày</h5>
+                <p class="context-card-desc">Ánh sáng tự nhiên chan hòa, tôn vinh sắc thái hoa văn và từng thớ vải.</p>
+              </div>
+            </div>
+
+            <!-- 4. Ban Đêm (HÌNH ẢNH BAN ĐÊM HOA ĐĂNG THỰC TẾ) -->
+            <div class="context-card time-context-card" data-value="Ban Đêm">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/hoi_an_night_lanterns_1791104244951.jpg" alt="Ban Đêm" class="context-card-img">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Ban Đêm</h5>
+                <p class="context-card-desc">Ánh hoa đăng lung linh trên dòng sông, phố cổ Hội An đêm rực rỡ đèn lồng huyền ảo.</p>
+              </div>
+            </div>
+
+            <!-- 5. Giữa Trưa -->
+            <div class="context-card time-context-card" data-value="Giữa Trưa">
+              <div class="context-check-indicator">✓</div>
+              <div class="context-card-img-wrap">
+                <img src="/assets/images/midday_harsh_sunlight.jpg?v=midday_new" alt="Giữa Trưa (Nắng gắt đỉnh đầu)" class="context-card-img">
+              </div>
+              <div class="context-card-body">
+                <h5 class="context-card-name">Giữa Trưa</h5>
+                <p class="context-card-desc">Nắng gắt đỉnh đầu, bóng đổ vuông góc, ánh sáng mạnh tôn rõ tương phản gấm vóc.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nút hành động chính Bước 1 -->
+          <div class="step-action-bar">
+            <button type="button" class="btn-primary-action" id="btn-next-step2">
+              <span>Tiếp tục chọn trang phục</span>
+              <span class="btn-arrow-icon">→</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             BƯỚC 2: CHỌN TRANG PHỤC & PHỐI ĐỒ (ÁO, QUẦN, PHỤ KIỆN)
+             - Giới tính: Nữ / Nam (Đã xóa Unisex)
+             - Chọn Áo: Tên trang phục + 10 Màu sắc (Đổi ảnh áo ngay khi chọn màu)
+             - Chọn Quần: Phân theo Nam / Nữ (3 quần nam, 3 quần nữ)
+             - Chọn Phụ kiện: Tối đa 4 món trên 20 phụ kiện
+             ==================================================================== -->
+        <div class="step-container" id="step-2-container">
+          
+          <!-- Bộ lọc giới tính dạng tab (ĐÃ XÓA UNISEX) -->
+          <div class="gender-tab-filter gender-selector-container">
+            <button type="button" class="gender-tab-btn active" data-gender="Nu">Nữ Giới</button>
+            <button type="button" class="gender-tab-btn" data-gender="Nam">Nam Giới</button>
+          </div>
+
+          <!-- 1. CHỌN ÁO CỔ PHONG (SKINS) -->
+          <div style="margin-bottom: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h4 class="context-group-title" style="margin-bottom: 0;">
+                <span>🏮</span>
+                <span>1. Chọn Áo Cổ Phong</span>
+              </h4>
+              <span style="font-size: 13px; font-weight: 700; color: var(--color-gold-light);">
+                Chia theo Nam/Nữ → Tên trang phục → Màu sắc
+              </span>
+            </div>
+
+            <!-- B. Tên trang phục: Danh sách các kiểu Áo theo Giới tính -->
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 13.5px; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+                ✦ Bấm chọn Tên Trang Phục (Thức áo cổ phong):
+              </div>
+              <div class="outfit-type-grid" id="outfit-catalog-container">
+                <!-- Đổ dữ liệu từ JavaScript với ảnh thực tế cập nhật theo màu -->
+              </div>
+            </div>
+
+            <!-- C. Bảng 10 Màu Truyền Thống: Chọn màu đổi ngay ảnh áo -->
+            <div style="margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--color-gold-light);">
+                  🎨 Bảng Màu Áo Truyền Thống (10 Tông Màu Cung Đình):
+                </div>
+                <span id="color-selection-hint" style="font-size: 12.5px; color: rgba(253,245,244,0.85); font-style: italic;">
+                  Bấm màu để đổi ảnh toàn bộ các mẫu áo
+                </span>
+              </div>
+              <div class="color-swatches-grid" id="color-palette-container">
+                <!-- Đổ dữ liệu từ JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. CHỌN QUẦN ĐI KÈM (PANTS - PHÂN THEO NAM / NỮ) -->
+          <div style="margin-bottom: 28px;">
+            <h4 class="context-group-title">
+              <span>👖</span>
+              <span id="pants-section-title">2. Chọn Quần Đi Kèm (Phân Theo Giới Tính)</span>
+            </h4>
+            <div class="pants-catalog-grid" id="pants-catalog-container">
+              <!-- Đổ 3 mẫu quần tương ứng theo giới tính từ JavaScript -->
+            </div>
+          </div>
+
+          <!-- 3. BỘ SƯU TẬP 20 PHỤ KIỆN (CHỌN TỐI ĐA 4 MÓN) -->
+          <div style="margin-bottom: 28px;">
+            <!-- Khung xếp dọc 2 hàng để tránh tranh chấp không gian -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
+              
+              <!-- HÀNG TRÊN: Tiêu đề -->
+              <h4 class="context-group-title" style="margin-bottom: 0; display: flex; align-items: center; gap: 6px; white-space: normal; word-break: break-word; line-height: 1.4;">
+                <span>💎</span>
+                <span>3. Chọn Phụ Kiện Đi Kèm (Tối Đa 4 Món Trên 20 Phụ Kiện)</span>
+              </h4>
+              
+              <!-- HÀNG DƯỚI: Huy hiệu nằm ở hàng riêng -->
+              <div style="display: flex; justify-content: flex-start;">
+                <span id="accessory-count-badge" class="accessory-count-badge">
+                  Đã chọn: 2 / 4 (Tối đa 4 món)
+                </span>
+              </div>
+
+            </div>
+
+            <div class="accessories-catalog-grid" id="accessories-catalog-container">
+              <!-- Đổ 20 phụ kiện từ JavaScript với hình ảnh thực tế từ system/Accessories -->
+            </div>
+          </div>
+
+          <!-- Thanh tóm tắt nhanh ở đáy màn hình -->
+          <div class="quick-summary-bar">
+            <div class="quick-summary-content" id="quick-summary-content">
+              <span class="summary-title">Tóm tắt phối đồ:</span>
+              <span class="summary-content-text" id="quick-summary-text">
+                Áo Tấc Ngũ Thân • Quần Lĩnh Nữ • Di tích lịch sử - văn hóa • Phụ kiện: Khăn đóng, Nón lá Huế (2/4)
+              </span>
+            </div>
+
+            <div class="quick-summary-actions">
+              <button type="button" class="btn-secondary-action" id="btn-back-step1">
+                <span class="btn-arrow-icon">←</span>
+                <span>Quay lại</span>
+              </button>
+              <button type="button" class="btn-primary-action" id="btn-next-step3">
+                <span>Xem kết quả phối đồ</span>
+                <span class="btn-arrow-icon">→</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====================================================================
+             BƯỚC 3: KẾT QUẢ & Ý NGHĨA
+             Phụ kiện đi kèm, Quần đi kèm, % độ phù hợp, đánh giá remix, cảnh báo văn hóa, zoom tích hợp
+             ==================================================================== -->
+        <div class="step-container" id="step-3-container">
+          
+          <div class="split-screen-layout">
+            
+            <!-- Cột trái: Khung ảnh áo lớn với tích hợp phóng to + Khối Quần & Phụ kiện -->
+            <div class="showcase-left-column">
+              <div class="showcase-main-frame" id="showcase-img-frame" title="Bấm vào ảnh để phóng to chi tiết">
+                <img 
+                  id="result-main-image"
+                  src="https://lh3.googleusercontent.com/d/1MRVgfXK-2dXA3JwOtREZt6CmaPltUcbf" 
+                  alt="Kết quả remix trang phục truyền thống" 
+                  class="showcase-costume-img"
+                  onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1MRVgfXK-2dXA3JwOtREZt6CmaPltUcbf';"
+                >
+              </div>
+
+              <!-- Khối phối hợp: Quần Đã Chọn + Các Phụ Kiện Đi Kèm (Tối đa 4 món) -->
+              <div class="showcase-parts-combo">
+                
+                <!-- Quần đã chọn -->
+                <div class="showcase-attached-pants" id="showcase-attached-pants-wrap">
+                  <span class="attached-pants-title">👖 Quần Đã Phối</span>
+                  <img id="attached-pants-img" src="https://lh3.googleusercontent.com/d/1EK1y6PtBNp9LoHBrFeHtLr61WvcGpgYz" alt="Quần phối" class="attached-pants-img" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1EK1y6PtBNp9LoHBrFeHtLr61WvcGpgYz';">
+                  <span id="attached-pants-name" class="attached-pants-name">Quần Lĩnh Nữ</span>
+                </div>
+
+                <!-- Phụ kiện đi kèm (tối đa 4 món) -->
+                <div class="showcase-attached-accessories">
+                  <div class="attached-accessories-title">
+                    <span>💎</span> Phụ Kiện Đi Kèm (<span id="result-acc-count">2</span>/4)
+                  </div>
+                  <div class="attached-accessories-grid" id="attached-accessories-grid">
+                    <!-- Đổ danh sách ảnh phụ kiện từ JavaScript -->
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Nút điều khiển: Chia sẻ -->
+              <div class="showcase-controls-bar">
+                <button type="button" class="showcase-btn" id="btn-share-result">
+                  <span>🔗</span> Chia sẻ
+                </button>
+              </div>
+            </div>
+
+            <!-- Cột phải: Bảng thông tin văn hóa, % độ phù hợp, đánh giá remix, cảnh báo văn hóa -->
+            <!-- Cột phải: Bảng thông tin văn hóa, 4 trụ cột đánh giá chuyên gia, phân tích thời tiết & bối cảnh -->
+            <div class="showcase-right-column">
+              <div class="culture-info-body">
+                
+                <!-- Bảng Điểm Chuyên Gia & 4 Trụ Cột Đánh Giá Chi Tiết -->
+                <div class="culture-score-banner">
+                  <div class="score-header">
+                    <div class="score-main-wrap">
+                      <span class="score-badge-icon">⚜️</span>
+                      <div>
+                        <span class="score-title">Đánh Giá Chuẩn Mực &amp; Hài Hòa Di Sản</span>
+                        <span class="score-sub-title">Phân tích theo Lễ chế, Ngũ hành sắc phục &amp; Thời tiết bối cảnh</span>
+                      </div>
+                    </div>
+                    <span class="score-percent-badge" id="result-score-badge">96% • XUẤT SẮC</span>
+                  </div>
+                  
+                  <div class="score-bar-track">
+                    <div class="score-bar-fill" id="result-score-bar" style="width: 96%;"></div>
+                  </div>
+
+                  <!-- 4 Trụ cột đánh giá chuyên gia chi tiết -->
+                  <div class="score-pillars-grid">
+                    <div class="score-pillar-card" data-target="detail-context">
+                      <div class="pillar-header">
+                        <span class="pillar-name">🏛️ Lễ Nghi &amp; Bối Cảnh</span>
+                        <span class="pillar-score" id="score-pillar-context">25/25</span>
+                      </div>
+                      <div class="pillar-track"><div class="pillar-fill" id="fill-pillar-context" style="width: 100%;"></div></div>
+                    </div>
+
+                    <div class="score-pillar-card" data-target="detail-weather">
+                      <div class="pillar-header">
+                        <span class="pillar-name">🌅 Sắc Thái &amp; Thời Tiết</span>
+                        <span class="pillar-score" id="score-pillar-time">24/25</span>
+                      </div>
+                      <div class="pillar-track"><div class="pillar-fill" id="fill-pillar-time" style="width: 96%;"></div></div>
+                    </div>
+
+                    <div class="score-pillar-card" data-target="detail-ensemble">
+                      <div class="pillar-header">
+                        <span class="pillar-name">🏮 Y Quan &amp; Phụ Kiện</span>
+                        <span class="pillar-score" id="score-pillar-ensemble">24/25</span>
+                      </div>
+                      <div class="pillar-track"><div class="pillar-fill" id="fill-pillar-ensemble" style="width: 96%;"></div></div>
+                    </div>
+
+                    <div class="score-pillar-card" data-target="detail-meaning">
+                      <div class="pillar-header">
+                        <span class="pillar-name">✨ Thẩm Mỹ Remix</span>
+                        <span class="pillar-score" id="score-pillar-aesthetics">23/25</span>
+                      </div>
+                      <div class="pillar-track"><div class="pillar-fill" id="fill-pillar-aesthetics" style="width: 92%;"></div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Phần Cảnh Báo / Bảo Chứng Phù Hợp Văn Hóa -->
+                <div class="cultural-warning-card" id="cultural-warning-box">
+                  <span class="warning-icon" id="cultural-warning-icon">✓</span>
+                  <div class="warning-content-text" id="cultural-warning-text">
+                    <!-- Nội dung đánh giá động bằng JS -->
+                  </div>
+                </div>
+
+                <!-- THẺ CONTAINER CHO GỢI Ý KHẮC PHỤC THÔNG MINH -->
+                <div id="smart-remedy-container" style="margin-top: 14px; width: 100%;"></div>
+
+                <div>
+                  <span class="outfit-era-tag" id="result-outfit-era">Niên đại: Triều Nguyễn (Thế kỷ XIX – XX)</span>
+                  <h3 class="culture-outfit-title" id="result-outfit-title">Áo Tấc Ngũ Thân – Tông Hồng Liên Hoa</h3>
+                </div>
+
+                <!-- 1. Đánh giá thời tiết & sắc thái các buổi trong ngày -->
+                <div class="culture-section-item" id="detail-weather">
+                  <h5 class="culture-section-heading">
+                    <span>🌅</span> Hài Hòa Sắc Thái &amp; Thời Điểm Trong Ngày
+                  </h5>
+                  <p class="culture-section-text" id="result-expert-weather-review">
+                    <!-- Đổ động từ JavaScript -->
+                  </p>
+                </div>
+
+                <!-- 2. Đánh giá mức độ phù hợp sự kiện / bối cảnh -->
+                <div class="culture-section-item" id="detail-context">
+                  <h5 class="culture-section-heading">
+                    <span>🏛️</span> Chuẩn Mực Nghi Lễ &amp; Không Gian Sử Dụng
+                  </h5>
+                  <p class="culture-section-text" id="result-expert-context-review">
+                    <!-- Đổ động từ JavaScript -->
+                  </p>
+                </div>
+
+                <!-- 3. Nhận xét phối hợp y quan, quần & phụ kiện -->
+                <div class="culture-section-item" id="detail-ensemble">
+                  <h5 class="culture-section-heading">
+                    <span>💎</span> Nhận Xét Chuyên Gia Về Phối Y Quan &amp; Phụ Kiện
+                  </h5>
+                  <p class="culture-section-text" id="result-expert-ensemble-review">
+                    <!-- Đổ động từ JavaScript -->
+                  </p>
+                </div>
+
+                <!-- 4. Ý nghĩa văn hóa & triết lý hoa văn -->
+                <div class="culture-section-item" id="detail-meaning">
+                  <h5 class="culture-section-heading">
+                    <span>📜</span> Ý Nghĩa Di Sản &amp; Triết Lý Thẩm Mỹ Cổ Phong
+                  </h5>
+                  <p class="culture-section-text" id="result-outfit-meaning">
+                    <!-- Đổ động từ JavaScript -->
+                  </p>
+                </div>
+
+                <!-- 5. Lời khuyên & Khuyến nghị từ Chuyên gia -->
+                <div class="expert-advice-box">
+                  <h5 class="culture-section-heading">
+                    <span>💡</span> Lời Khuyên Của Chuyên Gia Cổ Phục
+                  </h5>
+                  <p class="culture-section-text" id="result-expert-advice">
+                    <!-- Đổ động từ JavaScript -->
+                  </p>
+                </div>
+
+                <!-- Danh sách tổng hợp thành phần đang mặc -->
+                <div class="outfit-components-box">
+                  <h5 class="culture-section-heading">
+                    <span>📋</span> Tổng Hợp Thành Phần Đang Mặc
+                  </h5>
+                  <ul class="outfit-components-list" id="result-components-list">
+                    <!-- Đổ động từ JavaScript -->
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Nút hành động: Chỉnh sửa lại và Tạo phối đồ mới -->
+              <div class="result-action-footer">
+                <button type="button" class="btn-secondary-action" id="btn-edit-outfit" style="flex: 1; padding: 12px 20px;">
+                  ✎ Chỉnh sửa lại (Bước 2)
+                </button>
+                <button type="button" class="btn-primary-action" id="btn-new-outfit" style="flex: 1.2; justify-content: center;">
+                  <span>+ Tạo phối đồ mới</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WINDOW 4: TP. HỒ CHÍ MINH, QUẬN 1
+       - 3 Flashcards lật 3D
+       - ĐÃ XÓA CHỮ "(MẶT SAU)" Ở CẢ 3 THẺ THEO YÊU CẦU
+       ======================================================================== -->
+  <section class="window-section" id="window-4">
+    <div class="window-overlay"></div>
+
+    <div class="window-content">
+      <div class="window-header">
+        <span class="window-badge">TP. Hồ Chí Minh • Quận 1</span>
+        <h2 class="window-heading">Kho Tàng Câu Chuyện Cổ Phục</h2>
+        <p class="window-subheading">
+          Nhấp chuột trực tiếp vào từng thẻ ảnh trang phục bên dưới để lật mở những tầng ý nghĩa văn hóa và triết lý nhân sinh được tiền nhân ký thác.
+        </p>
+      </div>
+
+      <div class="w4-flashcards-grid">
+        
+        <!-- DIV 1: Áo Tấc ngũ thân (ĐÃ XÓA CHỮ MẶT SAU) -->
+        <div class="flashcard-3d-wrapper">
+          <div class="flashcard-inner" title="Bấm để lật xem câu chuyện">
+            <!-- Mặt trước -->
+            <div class="flashcard-front">
+              <div class="flashcard-front-img-wrap">
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1MRVgfXK-2dXA3JwOtREZt6CmaPltUcbf" 
+                  alt="Áo Tấc ngũ thân" 
+                  class="flashcard-front-img"
+                  data-costume-id="aotac_nu_lienhoa"
+                />
+              </div>
+              <div class="flashcard-front-caption">
+                <div>
+                  <h4 class="flashcard-title">Áo Tấc Ngũ Thân</h4>
+                  <p class="flashcard-subtitle">Triều Nguyễn • Sắc hồng liên hoa thuần khiết</p>
+                </div>
+                <div class="flashcard-hint">
+                  <span>↻</span> Nhấp để lật mở câu chuyện
+                </div>
+              </div>
+            </div>
+
+            <!-- Mặt sau: XÓA CHỮ (MẶT SAU) -->
+            <div class="flashcard-back">
+              <div class="flashcard-back-header">
+                <h4 class="flashcard-back-title">Áo Tấc Ngũ Thân</h4>
+              </div>
+              <div class="flashcard-back-content">
+                <p>
+                  Áo Tấc ngũ thân là hiện thân của đỉnh cao lễ nghi và chuẩn mực phục sức triều Nguyễn, nơi tinh thần đoan chính hòa quyện trong từng đường may khép kín mực thước. Khi mang sắc hồng liên hoa thuần khiết, tà y phục không chỉ phản chiếu nét thanh cao của nữ giới quyền quý mà còn gợi mở một thế giới thẩm mỹ thâm trầm, tao nhã của văn hóa cung đình. Cấu trúc trang phục này thúc giục hậu thế giải mã những tầng ý nghĩa nhân sinh sâu sắc mà tiền nhân đã ký thác qua từng đường kim mũi chỉ.
+                </p>
+                <p>
+                  Dưới triều Nguyễn, áo Tấc là biến thể thụng tay của áo ngũ thân, được định chế thành lễ phục trang trọng dùng chung cho hoàng tộc lẫn thứ dân trong các nghi thức tế tự, việc làng và hôn lễ. Cấu trúc năm thân ghép từ các khổ vải tượng trưng cho tứ thân phụ mẫu ôm bọc lấy thân con nhỏ bé nằm kín bên trong, nhắc nhở đạo hiếu sinh thành.
+                </p>
+                <p>
+                  Hàng năm khuy cài lệch bên phải biểu trưng cho Ngũ thường gồm Nhân, Lễ, Nghĩa, Trí, Tín cùng đạo lý Ngũ luân mực thước trong xã hội truyền thống. Ống tay may rộng thụng rủ dài ngang gấu áo buộc người mặc luôn giữ tư thế chắp tay cung kính, tạo nên cốt cách khoan thai và vẻ đẹp đoan trang của nữ giới.
+                </p>
+              </div>
+              <div class="flashcard-back-footer">
+                <span>↺ Nhấp để quay lại ảnh mặt trước</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIV 2: Áo Tứ Thân (ĐÃ XÓA CHỮ MẶT SAU) -->
+        <div class="flashcard-3d-wrapper">
+          <div class="flashcard-inner" title="Bấm để lật xem câu chuyện">
+            <!-- Mặt trước -->
+            <div class="flashcard-front">
+              <div class="flashcard-front-img-wrap">
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1njLdGirfgF2SOg-DfF8_HC5WP1OCdiUn" 
+                  alt="Áo Tứ Thân" 
+                  class="flashcard-front-img"
+                  data-costume-id="tuthan_nu_bichthuy"
+                />
+              </div>
+              <div class="flashcard-front-caption">
+                <div>
+                  <h4 class="flashcard-title">Áo Tứ Thân</h4>
+                  <p class="flashcard-subtitle">Kinh Bắc • Sắc xanh bích thủy phối yếm sen</p>
+                </div>
+                <div class="flashcard-hint">
+                  <span>↻</span> Nhấp để lật mở câu chuyện
+                </div>
+              </div>
+            </div>
+
+            <!-- Mặt sau: XÓA CHỮ (MẶT SAU) -->
+            <div class="flashcard-back">
+              <div class="flashcard-back-header">
+                <h4 class="flashcard-back-title">Áo Tứ Thân</h4>
+              </div>
+              <div class="flashcard-back-content">
+                <p>
+                  Bắt nguồn từ không gian văn hóa châu thổ sông Hồng, áo Tứ Thân là biểu tượng mộc mạc của tâm thức lao động và hồn cốt ngàn đời của phụ nữ Việt. Sắc xanh bích thủy phối cùng yếm thêu hoa sen làm bừng sáng nét duyên dáng, kín đáo mà thanh thoát giữa cảnh sắc hội làng Kinh Bắc thanh bình. Việc tái hiện trang phục này khơi dậy xúc cảm tự hào và thôi thúc cộng đồng tìm về nguồn cội bản sắc dân gian thuần khiết.
+                </p>
+                <p>
+                  Do giới hạn của khung dệt thủ công khổ hẹp xưa kia, thân sau áo buộc phải can đôi thành đường sống lưng thẳng tắp, còn thân trước xẻ thành hai vạt buông rủ để buộc nút gọn gàng. Bốn vạt áo mang tầng nghĩa nhân văn biểu trưng cho tứ thân phụ mẫu đôi bên nội ngoại luôn đồng hành chở che.
+                </p>
+                <p>
+                  Cách phối hợp cùng áo yếm bên trong và dải lưng lụa bên ngoài định hình lối phục sức nhiều tầng lớp uyển chuyển, tiện dụng cho cả lao động nông nghiệp lẫn sinh hoạt hội hè. Nút thắt vạt áo trước bụng tượng trưng cho mối dây gắn kết phu thê hòa thuận, khắc họa trọn vẹn nét tần tảo và vẻ đẹp đằm thắm của người phụ nữ thôn quê.
+                </p>
+              </div>
+              <div class="flashcard-back-footer">
+                <span>↺ Nhấp để quay lại ảnh mặt trước</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIV 3: Áo Giao Lĩnh (ĐÃ XÓA CHỮ MẶT SAU) -->
+        <div class="flashcard-3d-wrapper">
+          <div class="flashcard-inner" title="Bấm để lật xem câu chuyện">
+            <!-- Mặt trước -->
+            <div class="flashcard-front">
+              <div class="flashcard-front-img-wrap">
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1f_8Fd3qZEa_naZ9AP2Q3JA7g4oFZqpF0" 
+                  alt="Áo Giao Lĩnh" 
+                  class="flashcard-front-img"
+                  data-costume-id="giaolinh_nam_xichkim"
+                />
+              </div>
+              <div class="flashcard-front-caption">
+                <div>
+                  <h4 class="flashcard-title">Áo Giao Lĩnh</h4>
+                  <p class="flashcard-subtitle">Lý – Trần – Lê • Tông màu xích kim quyền quý</p>
+                </div>
+                <div class="flashcard-hint">
+                  <span>↻</span> Nhấp để lật mở câu chuyện
+                </div>
+              </div>
+            </div>
+
+            <!-- Mặt sau: XÓA CHỮ (MẶT SAU) -->
+            <div class="flashcard-back">
+              <div class="flashcard-back-header">
+                <h4 class="flashcard-back-title">Áo Giao Lĩnh</h4>
+              </div>
+              <div class="flashcard-back-content">
+                <p>
+                  Áo Giao Lĩnh là dấu ấn trường tồn của nền văn hiến Đại Việt, định hình phong thái đĩnh đạc và uy nghiêm của đấng trượng phu qua các triều đại Lý, Trần, Lê. Tông màu xích kim quyền quý phối hợp cùng đại đai hoàng kim làm nổi bật phong độ đĩnh đạc, phản chiếu hào khí tự tôn của một quốc gia độc lập phương Nam. Thức phục này là nguồn cảm hứng mạnh mẽ cho phong trào nghiên cứu, phục dựng cổ phục đỉnh cao của giới trẻ hiện nay.
+                </p>
+                <p>
+                  Áo Giao Lĩnh (còn gọi là áo tràng bạt) có cấu trúc cổ chéo đặc trưng với vạt bên trái đè chéo sang bên phải, là dạng thức y phục xuất hiện rất sớm và tồn tại bền bỉ trong lịch sử nước nhà. Thiết kế thân áo thụng dài chấm gót, tay áo rộng kết hợp đai lưng thắt ngang eo tạo nên tư thế tề chỉnh, đường bệ cho quan lại và sĩ phu chốn quan trường.
+                </p>
+                <p>
+                  Sắc xích kim tượng trưng cho phẩm hàm danh giá, uy quyền chính trị và chuẩn mực lễ nhạc quy củ của chế độ quân chủ phong kiến. Trang phục không chỉ đóng vai trò nghi lễ trong điển chế triều đình mà còn là biểu đạt văn hóa sâu sắc khẳng định bản sắc độc lập của văn minh Đại Việt.
+                </p>
+              </div>
+              <div class="flashcard-back-footer">
+                <span>↺ Nhấp để quay lại ảnh mặt trước</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WINDOW 5: CÀ MAU
+       - Background: Mũi Cà Mau
+       - Đổi avatar sang dạng IMAGE (đã sẵn sàng để thêm ảnh vào sau)
+       - Giữ nguyên nội dung và footage
+       ======================================================================== -->
+  <section class="window-section" id="window-5">
+    <div class="window-overlay"></div>
+
+    <div class="window-content">
+      <div class="w5-main-container">
+        
+        <!-- Phần trên: Đội ngũ phát triển (Avatar dạng image) -->
+        <div>
+          <div class="window-header" style="margin-bottom: 32px;">
+            <span class="window-badge">Mũi Cà Mau • Địa Đầu Cực Nam</span>
+            <h2 class="window-heading">Đội Ngũ Phát Triển Dự Án</h2>
+            <p class="window-subheading">
+              Tâm huyết của những người trẻ khao khát kết nối công nghệ và di sản văn hóa truyền thống Việt Nam.
+            </p>
+          </div>
+
+          <div class="w5-team-grid">
+            
+            <!-- Div 1: Nguyễn Thị Thanh Nhàn -->
+            <div class="team-member-card">
+              <img 
+                src="/assets/images/system/avatars/nttn.png" 
+                alt="Nguyễn Thị Thanh Nhàn" 
+                class="team-avatar-img"
+                onerror="this.onerror=null; this.src='/assets/images/system/logo/logo.png';"
+              >
+              <h3 class="team-member-name">Nguyễn Thị Thanh Nhàn</h3>
+              <span class="team-member-role">Head of product</span>
+              <p class="team-member-bio">
+                Quản lý dự án, phân tích insights người dùng và định hướng giải pháp, UI/UX design.
+              </p>
+            </div>
+
+            <!-- Div 2: Phạm Quốc Khánh -->
+            <div class="team-member-card">
+              <img 
+                src="/assets/images/system/avatars/pqk.png" 
+                alt="Phạm Quốc Khánh" 
+                class="team-avatar-img"
+                onerror="this.onerror=null; this.src='/assets/images/system/logo/logo.png';"
+              >
+              <h3 class="team-member-name">Phạm Quốc Khánh</h3>
+              <span class="team-member-role">AI developer, designer</span>
+              <p class="team-member-bio">
+                Thiết kế giao diện web/app, prompting demo frontend.
+              </p>
+            </div>
+
+            <!-- Div 3: Huỳnh Thái Hòa -->
+            <div class="team-member-card">
+              <img 
+                src="/assets/images/system/avatars/hth.png" 
+                alt="Huỳnh Thái Hòa" 
+                class="team-avatar-img"
+                onerror="this.onerror=null; this.src='/assets/images/system/logo/logo.png';"
+              >
+              <h3 class="team-member-name">Huỳnh Thái Hòa</h3>
+              <span class="team-member-role">AI developer, backend</span>
+              <p class="team-member-bio">
+                Quản lý API, thiết kế cấu trúc backend, prompting dataset.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Phần dưới: Footage giữ nguyên nội dung và design -->
+        <div class="w5-footage-card">
+          
+          <div class="quote-box">
+            <p class="quote-text">
+              "Cổ phục không chỉ là y trang của tiền nhân, mà là tấm danh thiếp văn hóa định vị bản sắc dân tộc trước dòng chảy thời đại."
+            </p>
+            <span class="quote-author">— Tinh Thần Dự Án Việt Phục Niên Hoa —</span>
+          </div>
+
+          <div class="footage-grid">
+            
+            <!-- Cột 1: Tài liệu tham khảo -->
+            <div class="footage-column">
+              <h4 class="footage-column-title">📚 Tài Liệu Tham Khảo</h4>
+              <p class="footage-column-text">
+                1. Trần, Q. Đ. (2013). <em>Ngàn năm áo mũ: Lịch sử trang phục Việt Nam giai đoạn 1009–1945</em>. NXB Thế giới.<br><br>
+                2. Đoàn, T. T. (2006). <em>Trang phục Việt Nam (Dân tộc Việt)</em>. NXB Mỹ thuật.
+              </p>
+            </div>
+
+            <!-- Cột 2: Email liên hệ -->
+            <div class="footage-column">
+              <h4 class="footage-column-title">✉️ Thông Tin Liên Hệ</h4>
+              <p class="footage-column-text">
+                Mọi ý kiến đóng góp chuyên môn, hợp tác văn hóa học đường hoặc trao đổi dự án, xin vui lòng gửi về:
+              </p>
+              <p style="margin-top: 6px;">
+                <a href="mailto:thanhnhann2006@gmail.com" class="email-contact-link">
+                  thanhnhann2006@gmail.com
+                </a>
+              </p>
+              <p class="footage-column-text" style="font-size: 12px; margin-top: 4px; color: rgba(253,245,244,0.6);">
+                Phản hồi trong vòng 24 - 48 giờ làm việc.
+              </p>
+              <p style="margin-top: 10px;">
+                <a href="/privacy" target="_blank" style="color: var(--color-gold); font-size: 12.5px; text-decoration: underline;">
+                  🔒 Chính sách bảo mật (Privacy Policy)
+                </a>
+              </p>
+            </div>
+
+            <!-- Cột 3: Lời kêu gọi (reaction call) -->
+            <div class="footage-column">
+              <h4 class="footage-column-title">✨ Lan Tỏa Giá Trị Văn Hóa</h4>
+              <p class="reaction-call-text">
+                Hãy cùng chúng tôi tôn vinh và thắp sáng vẻ đẹp của cổ phục Việt! Hãy sử dụng ứng dụng để tạo ra những set đồ truyền thống độc đáo của riêng bạn, chia sẻ niềm tự hào di sản đến bạn bè và lan tỏa giá trị văn hóa ngàn đời của dân tộc vươn xa.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       RIBBON / POPUP ĐĂNG NHẬP (HIỆN Ở TRUNG TÂM)
+       - Khung tên đăng nhập
+       - Khung nhập mật khẩu
+       - Nút xác nhận
+       - Hướng sang đăng ký
+       ======================================================================== -->
+  <div class="modal-overlay" id="modal-login">
+    <div class="auth-modal-window">
+      <button type="button" class="modal-close-btn" id="btn-close-login" title="Đóng">✕</button>
+      <h3 class="auth-modal-title">Đăng Nhập</h3>
+      <p class="auth-modal-desc">Chào mừng bạn quay trở lại với Việt Phục Remix Studio</p>
+
+      <form class="auth-form" id="form-login" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label class="form-label" for="login-username">Email Đăng Nhập</label>
+          <input type="email" id="login-username" class="form-input" placeholder="Nhập địa chỉ email của bạn..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Mật Khẩu</label>
+          <input type="password" id="login-password" class="form-input" placeholder="Nhập mật khẩu của bạn..." required>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btn-submit-login">
+          Xác Nhận Đăng Nhập
+        </button>
+      </form>
+
+      <div style="margin: 16px 0; text-align: center; position: relative;">
+        <div style="border-top: 1px solid rgba(253,245,244,0.2); position: absolute; top: 50%; left: 0; right: 0; z-index: 1;"></div>
+        <span style="background: rgba(18, 34, 45, 0.95); padding: 0 12px; position: relative; z-index: 2; font-size: 12px; color: rgba(253,245,244,0.7);">Hoặc tiếp tục với</span>
+      </div>
+
+      <button type="button" class="btn-google-auth" id="btn-google-login" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: #FFFFFF; color: #1F2937; border: 1.5px solid var(--color-gold); border-radius: 12px; padding: 11px 16px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.95H1.14v3.14C3.15 21.36 7.25 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.25c-.25-.72-.38-1.49-.38-2.25s.13-1.53.38-2.25V6.61H1.14C.41 8.1 0 9.79 0 12s.41 3.9 1.14 5.39l4.14-3.14z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.25 0 3.15 2.64 1.14 6.61l4.14 3.14c.95-2.84 3.6-4.95 6.72-4.95z"/></svg>
+        Đăng nhập với Google
+      </button>
+
+      <div class="auth-switch-text">
+        Chưa có tài khoản?
+        <button type="button" class="auth-switch-btn" id="btn-switch-to-register">Đăng ký tài khoản mới</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       RIBBON / POPUP ĐĂNG KÝ (HIỆN Ở TRUNG TÂM)
+       - Khung tên đăng ký
+       - Khung tạo mật khẩu
+       - Khung nhập lại mật khẩu
+       - Nút xác nhận
+       - Nút bên dưới hướng sang popup đăng nhập nếu có tài khoản
+       ======================================================================== -->
+  <div class="modal-overlay" id="modal-register">
+    <div class="auth-modal-window">
+      <button type="button" class="modal-close-btn" id="btn-close-register" title="Đóng">✕</button>
+      <h3 class="auth-modal-title">Đăng Ký Thành Viên</h3>
+      <p class="auth-modal-desc">Khởi tạo tài khoản trải nghiệm phối đồ cổ phục Việt Nam</p>
+
+      <form class="auth-form" id="form-register" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label class="form-label" for="reg-username">Email Đăng Ký</label>
+          <input type="email" id="reg-username" class="form-input" placeholder="Nhập địa chỉ email của bạn..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Tạo Mật Khẩu</label>
+          <input type="password" id="reg-password" class="form-input" placeholder="Tạo mật khẩu an toàn..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password-confirm">Nhập Lại Mật Khẩu</label>
+          <input type="password" id="reg-password-confirm" class="form-input" placeholder="Nhập lại mật khẩu để xác nhận..." required>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btn-submit-register">
+          Xác Nhận Đăng Ký
+        </button>
+      </form>
+
+      <div style="margin: 16px 0; text-align: center; position: relative;">
+        <div style="border-top: 1px solid rgba(253,245,244,0.2); position: absolute; top: 50%; left: 0; right: 0; z-index: 1;"></div>
+        <span style="background: rgba(18, 34, 45, 0.95); padding: 0 12px; position: relative; z-index: 2; font-size: 12px; color: rgba(253,245,244,0.7);">Hoặc tiếp tục với</span>
+      </div>
+
+      <button type="button" class="btn-google-auth" id="btn-google-register" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: #FFFFFF; color: #1F2937; border: 1.5px solid var(--color-gold); border-radius: 12px; padding: 11px 16px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.95H1.14v3.14C3.15 21.36 7.25 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.25c-.25-.72-.38-1.49-.38-2.25s.13-1.53.38-2.25V6.61H1.14C.41 8.1 0 9.79 0 12s.41 3.9 1.14 5.39l4.14-3.14z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.25 0 3.15 2.64 1.14 6.61l4.14 3.14c.95-2.84 3.6-4.95 6.72-4.95z"/></svg>
+        Đăng ký với Google
+      </button>
+
+      <div class="auth-switch-text">
+        Đã có tài khoản?
+        <button type="button" class="auth-switch-btn" id="btn-switch-to-login">Đăng nhập ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL CHIA SẺ PHỐI ĐỒ (KHÔNG 404, HIỆN ẢNH PREVIEW)
+       ======================================================================== -->
+  <div class="modal-overlay" id="modal-share-preview">
+    <div class="share-modal-window">
+      <button type="button" class="modal-close-btn" id="btn-close-share" title="Đóng">✕</button>
+      <h3 class="auth-modal-title">Chia Sẻ Bộ Phối Đồ</h3>
+      <p class="auth-modal-desc">Lan tỏa niềm tự hào trang phục truyền thống Việt Nam đến bạn bè</p>
+
+      <div class="share-preview-card">
+        <img id="share-card-img" src="" alt="Trang phục chia sẻ" class="share-preview-img">
+        <div>
+          <h4 id="share-card-title" style="font-size: 16px; font-weight: 800; color: #FFFFFF; font-family: var(--font-serif);">Áo Tấc Ngũ Thân</h4>
+          <p id="share-card-context" style="font-size: 13px; color: var(--color-gold-light); margin: 4px 0;">Bối cảnh: Di tích lịch sử - văn hóa</p>
+          <span id="share-card-score" style="font-size: 11.5px; white-space: nowrap; background: rgba(16,185,129,0.3); border: 1px solid #10B981; color: #FFFFFF; padding: 2px 8px; border-radius: 10px; font-weight: 700;">
+            ✓ 98% Chuẩn Mực Văn Hóa
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group" style="text-align: left;">
+        <label class="form-label" for="share-url-input">Liên kết chia sẻ bộ phối đồ:</label>
+        <div class="share-link-input-group">
+          <input type="text" id="share-url-input" class="form-input" readonly>
+          <button type="button" class="btn-primary-action" id="btn-copy-share-url" style="padding: 10px 20px; white-space: nowrap;">
+            Sao chép
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: ĐỒ ĐÃ LƯU
+       ======================================================================== -->
+  <div class="modal-overlay" id="modal-saved-outfits">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" id="btn-close-saved" title="Đóng">✕</button>
+      <h3 class="modal-title">Bộ Sưu Tập Trang Phục Đã Lưu</h3>
+      <div class="saved-outfits-list" id="saved-outfits-list-container">
+        <!-- Render động bằng JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: LIGHTBOX PHÓNG TO ẢNH KẾT QUẢ
+       ======================================================================== -->
+  <div class="modal-overlay" id="modal-lightbox">
+    <button type="button" class="modal-close-btn" id="btn-close-lightbox" style="position: fixed; top: 24px; right: 30px; font-size: 34px; z-index: 1010; color: #FFFFFF;">✕</button>
+    <img id="lightbox-img" src="" alt="Ảnh phóng to chi tiết" class="lightbox-img-element">
+  </div>
+
+  <!-- Toast thông báo giới hạn phụ kiện -->
+  <div class="toast-notification" id="toast-notify">
+    ⚠️ Bạn chỉ được chọn tối đa 4 món phụ kiện để đảm bảo hài hòa quy chuẩn cổ phong!
+  </div>
+
+  <!-- File JavaScript thuần riêng biệt -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
